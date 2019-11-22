@@ -208,9 +208,9 @@ std::vector<bbox_t> analyze_scene_adv(std::unordered_map<unsigned int, unsigned 
 
 int detect(std::string Filename, float const Thresh)
 {
-    std::string  names_file = "/home/systemscoop/object-detection/darknet/data/coco.names";
-    std::string  cfg_file = "/home/systemscoop/object-detection/darknet/cfg/yolov3.cfg";
-    std::string  weights_file = "/home/systemscoop/object-detection/darknet/yolov3.weights";
+    std::string  names_file = "darknet/data/coco.names";
+    std::string  cfg_file = "darknet/cfg/yolov3.cfg";
+    std::string  weights_file = "darknet/yolov3.weights";
     std::string filename = Filename;
     float thresh = Thresh;
 
