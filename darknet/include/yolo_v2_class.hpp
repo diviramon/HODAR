@@ -19,8 +19,6 @@
 
 #define C_SHARP_MAX_OBJECTS 1000
 
-#define TRACK_OPTFLOW
-
 struct bbox_t {
     unsigned int x, y, w, h;       // (x,y) - top-left corner, (w, h) - width & height of bounded box
     float prob;                    // confidence - probability that the object was found correctly
@@ -547,7 +545,7 @@ public:
 };
 #else
 
-//class Tracker_optflow {};
+class Tracker_optflow {};
 
 #endif    // defined(TRACK_OPTFLOW) && defined(OPENCV)
 
@@ -875,7 +873,7 @@ public:
         for (size_t state_id = 0; state_id < track_id_state_id_time.size(); ++state_id)
         {
             float time_sec = std::chrono::duration<double>(std::chrono::steady_clock::now() - track_id_state_id_time[state_id].last_time).count();
-            float time_wait = 0.1;    // 0.5 second
+            float time_wait = 0.5;    // 0.5 second
             if (track_id_state_id_time[state_id].track_id > -1)
             {
                 if ((result_vec_pred[state_id].x > img_size.width) ||
@@ -1006,16 +1004,7 @@ public:
                         track_id_state_id_time[i].track_id = ++track_id_counter;
                         result_vec_pred[i].track_id = track_id_counter;
                     }
-                    /*
-                    result_vec_pred[i].track_id = 1;
-                    for (size_t j = 0; j < i; ++j)
-                    {
-                        if (result_vec_pred[i].obj_id == result_vec_pred[j].obj_id)
-                        {
-                            result_vec_pred[i].track_id++;
-                        }
-                    }
-                    */
+
                     result_vec.push_back(result_vec_pred[i]);
                 }
             }
@@ -1049,13 +1038,6 @@ public:
         }
 
         result_vec = predict();
-
-        for (size_t i = 0; i < result_vec.size(); ++i){
-            result_vec[i].track_id = 1;
-            for (size_t j = 0; j < i; ++j){
-                if (result_vec[i].obj_id == result_vec[j].obj_id) result_vec[i].track_id++;
-            }
-        }
 
         global_last_time = std::chrono::steady_clock::now();
 
