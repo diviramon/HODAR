@@ -29,6 +29,65 @@ Deep learning has been proved to be a very fast and reliable manner to carry out
 
 Now you can clone this repository into the folder of your choice. The makefile has already being configured with all the required dependecies. Consequently, cd into the darknet folder and type **make** to trigger the build process.
 
+Next, you need to add the library files to the **LIBRARY PATH**:
+
+`export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<path to darknet folder>`
+
 Finally, the only thing missing is the pretrained weights for the COCO dataset. From the darknet folder run:
 
 ` wget https://pjreddie.com/media/files/yolov3.weights`
+
+If you wish, you can train the neural network to work with your marked dataset. However, for the purposes of this project the pretrained model is good enough and saves time.
+
+### Usage
+
+Once darknet has been successfuly configured you can start working the application. To compile it there is a shell script in the parent folder:
+
+`/bin/sh ./compile.sh`
+
+Make sure you have an USB camera connected and this one is recognized by your computer (you can use cheese software to check it out). Next just type `./hodar` and the application will trigger and display the object detection in real time.
+
+You can interact with the application by pressing the key **Enter** to only display any new objects that enter escense, and **ESC** to end it.
+
+### Implementation
+
+There are two source files that you should be aware of and modify:
+
+- hodar.cpp: which is the main file that builds the app.
+- yolo.cpp: which is the file where I added the changes to the API and implemented the further work (yolo_v2_class.hpp).
+
+For any future work or modifications these are the two files that you should refer to. I also had to do some minor modifications to the yolo_v2_class.hpp to alter the detection algorithm. However, it is not likely that you will have to do so.
+
+#### yolo.cpp
+
+The main function in this file is detect, which launches different CUDA threads to carry out the object detection. There are 4 main threads that you should be familiar with:
+
+- t_cap: which uses OPENCV to connect to the camera and retrieve the frames.
+- t_prepare: it receives the frames from t_cap and preprocesses them to carry out the detection. It resizes and converts the images as needed.
+- t_detect: where the YOLO detection happens.
+- t_draw: it receives the frame and the YOLO results, and it draws boxes on the frames as needed. Additionally, it uses a modified kahman filter to track the objects between frames and classifies them. 
+
+Finally, all of the data is displayed using OPENCV. There are also a couple of additional threads that offer additional capability such as sending the video to the network or saving it. However, I have not tested them much. 
+
+## LIDAR Turret
+
+In this section I will cover the design of the lidar turret and the code.
+
+### CAD design
+
+The design was done using SOLIDWORKS and 3D printed. The files can be found:
+
+`N:\ENGINEERING\dramonprados\HODAR Turret_SolidWorks`
+
+#### Components
+
+- LIDAR
+- Stepper Motor
+- Servo Motor
+- 12 Wire
+
+More info: https://christie.atlassian.net/wiki/spaces/~641488303/pages/149913613/HODAR
+
+### Arduino Code
+
+WIP...
