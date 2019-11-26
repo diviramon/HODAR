@@ -8,4 +8,22 @@ This project aims to do 3D volumetric bounding using a 1D LIDAR and a camera. It
 
 ## Fast Object Detection
 
-Deep learning has been proved to be a very fast and reliable manner to carry out object detection. There are different neural networks dedicated to this task such as: CNN, R-CNN, YOLO... For this project I decided to choose You Only Look Once (**YOLO**)
+Deep learning has been proved to be a very fast and reliable manner to carry out object detection. There are different neural networks dedicated to this task such as: CNN, R-CNN, YOLO... For this project I decided to choose You Only Look Once (**YOLO**) since it was proven to be the fast one and accuracy was not as important as speed. HODAR purpose is to detect and bound any new object that enters the scene, clasifying it is out of the scope for now. For this reason, YOLO was the best choice. In order to install YOLO a set of prerequisites must be met.
+
+### Prerequisites
+
+- First make sure your Graphic Card is GPU compatible, running YOLO on the CPU is very slow.
+- Install CMake >= 3.8: https://cmake.org/download/
+- Make sure that you have Python 3 installed, if not install it and make it default. Pip3 will also be helpful.
+- Install CUDA >= 10.0, which it can be done in different ways:
+    - Got to https://developer.nvidia.com/cuda-toolkit-archive and select the version that you want to install.
+There are different ways to install CUDA, I personally recommend using the deb-network option if you are on Ubuntu.
+Once that is finished you need to do the additional steps listed here: https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions (all of them)
+Next Install cuDNN for the appropriate CUDA version that you chose: https://developer.nvidia.com/rdp/cudnn-archive
+You will need a NVIDIA developer account to access: https://developer.nvidia.com/rdp/cudnn-archive
+After downloading the TAR file, finish the steps outlined here: https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html#installlinux-tar
+When I did them the chmod would not do the required steps, and the linking would be unsuccessful. If it does not work for you, follow this community answer to fix it: https://askubuntu.com/questions/1025928/why-do-i-get-sbin-ldconfig-real-usr-local-cuda-lib64-libcudnn-so-7-is-not-a
+Finally, install OpenCV, which was the most problematic step for me. First refrain from using pip to install python-opencv as you need the complete installation to compile darknet. In addition, you need a version later than 2.4, but I would recommend not using OpenCV 4.1 as it introduced some changes that will cause you a headache. For example, OpenCV 4.1 does not build the .pc package file anymore, which is mostly obsolete, but darknet will look for it at building time. For this reason, I installed OpenCV 3.4.7.
+The cleanest way I found was to use the following shell script: https://github.com/milq/milq/blob/master/scripts/bash/install-opencv.sh
+Make sure you change the version and add YES to install opencv extra modules.
+In addition, check whether your system has GCC installed (most likely yes).
