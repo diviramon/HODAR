@@ -30,4 +30,4 @@ Deep learning has been proved to be a very fast and reliable manner to carry out
 Now you can clone this repository into the folder of your choice. The makefile has already being configured with all the required dependecies. Consequently, cd into the darknet folder and type **make** to trigger the build process.
 
 Finally, the only thing missing is the pretrained weights for the COCO dataset. From the darknet folder run:
-` wget https://pjreddie.com/media/files/yolov3.weights
+` wget https://pjreddie.com/media/files/yolov3.weights`
