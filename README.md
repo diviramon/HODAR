@@ -92,7 +92,7 @@ The design was done using SOLIDWORKS and 3D printed. The files can be found:
 - LIDAR
 - Stepper Motor
 - Servo Motor
-- 12 Wire
+- 12 Wire Slip Ring
 
 More info: https://christie.atlassian.net/wiki/spaces/~641488303/pages/149913613/HODAR
 
