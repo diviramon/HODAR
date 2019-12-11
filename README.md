@@ -12,6 +12,7 @@ This project aims to do 3D volumetric bounding using a 1D LIDAR and a camera. It
   * [CAD design](#cad-design)
     + [Components](#components)
   * [Arduino Code](#arduino-code)
+- [LIDAR Viewer](#lidar-viewer)
 
 
 ## Fast Object Detection
@@ -99,3 +100,17 @@ More info: https://christie.atlassian.net/wiki/spaces/~641488303/pages/149913613
 ### Arduino Code
 
 WIP...
+
+## LIDAR Viewer
+
+A simple tool visualization tool is included in the project. The viewer uses JAVA and the sketching software tool Processing to display the points in 3D. It also allows to save and or load points from xyz file. 
+
+For real time output, it uses serial communication to read the data from the arduino. However, the object detection algorithm also uses serial data to send the location of the new object to the arduinon. Consequently, both of them are not compatible at the moment. 
+
+## Future Work
+
+HODAR is not a finished project at the current state, and it has several areas of improvement. I have grouped them into two categories: hardware and software.
+
+### Hardware Improvements
+
+The first are of improvement would be buying a better timing belt to the right size. The current timing belt had to be cut and then glued together to fit our needs. However, timing belts are very sensitive and skipping a...
