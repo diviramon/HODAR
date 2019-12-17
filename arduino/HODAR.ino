@@ -5,11 +5,8 @@
 */
 
 #include <TimerOne.h>
-#include <LIDARLite_v4LED.h>
-#include <LIDARLite_v3HP.h>
 #include <LIDARLite.h>
 #include <SoftwareServo.h>
-
 
 
 LIDARLite myLidarLite; // LIDAR controller
