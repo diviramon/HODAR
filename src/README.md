@@ -2,6 +2,13 @@
 
 HODAR uses an external Webcam and deep learning to detect objects in real time. In this case, we use the neural network YOLO to analyze the scene and detect any new object that may enter it. There are many neural networks desinged to do a similar task. However, I found YOLO to be the fastest one, which was the most important parameter for our goal.
 
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Implementation](#implementation)
+  * [yolo.cpp](#yolocpp)
+- [Usage](#usage)
+- [Future Work](#future-work)
+
 ## Prerequisites
 
 - First make sure your Graphic Card is GPU compatible, running YOLO on the CPU is very slow.
@@ -63,4 +70,4 @@ You can interact with the application by pressing the key **Enter** to only disp
 
 ## Future Work
 
-The enxt step for the object detection module is to implement a way for it to send the coordinates of the detected object's centroid to the Arduino. The easiest way to do this is using Serial communication, and writing into the port the coordinates of the centroid and/or the size of the bounding box. Then, the arduino will use this information to communicate with the motors and Lidar to found the object and map it. This approach has the downside that it will prevent us from plotting in live time the results since the viewer also uses the Serial Port and you can't connect a third application to it. Additional research is needed to come up with the best solution to this last part of the project.
+The next step for the object detection module is to implement a way for it to send the coordinates of the detected object's centroid to the Arduino. The easiest way to do this is using Serial communication, and writing into the port the coordinates of the centroid and/or the size of the bounding box. Then, the arduino will use this information to communicate with the motors and Lidar to found the object and map it. This approach has the downside that it will prevent us from plotting in live time the results since the viewer also uses the Serial Port and you can't connect a third application to it. Additional research is needed to come up with the best solution to this last part of the project.
