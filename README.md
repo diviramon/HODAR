@@ -61,7 +61,7 @@ Below you can find a comparison of the final CAD design and the 3D printed assem
 
 #### Lidar Turret
 
-![Lidar-Turret](media/Lidar-turret.JPG)
+![Lidar-Turret](media/lidar-turret.png)
 
 
 More info: https://christie.atlassian.net/wiki/spaces/~641488303/pages/149913613/HODAR
