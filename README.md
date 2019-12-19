@@ -11,9 +11,6 @@ This project aims to do 3D volumetric bounding using a 1D LIDAR and a camera. HO
     + [Final Design](#final-design)
     + [Lidar Turret](#lidar-turret)
 - [LIDAR Viewer](#lidar-viewer)
-- [Future Work](#future-work)
-  * [Hardware Improvements](#hardware-improvements)
-  * [Software Improvements](#software-improvements)
 
 ## Overview
 
@@ -71,20 +68,4 @@ A simple tool visualization tool is included in the project. The viewer uses JAV
 ![Lidar-Viewer](media/lidar-viewer.png)
 
 For real time output, it uses serial communication to read the data from the arduino. However, the object detection algorithm also uses serial data to send the location of the new object to the arduinon. Consequently, both of them are not compatible at the moment. 
-
-## Future Work
-
-HODAR is not a finished project at the current state, and it has several areas of improvement. I have grouped them into two categories: hardware and software.
-
-### Hardware Improvements
-
-The first are of improvement would be buying a better timing belt to the right size. The current timing belt had to be cut and then glued together to fit our needs. However, it is very hard to not damage any of the teeth during the process, and to cut the belt to right size.
-
-The second one would be printing again the main frame that holds the servo and the Lidar, and then use an aluminum pulley and attach it to the frame. This was the original idea, but we thought we could get away with 3D printing the pulley and avoiding drilling through aluminum. However, due to the quality of the 3D printer some of the teeth in the pulley are faulty. This causes the timing belt to miss some steps and slide. However, we rely on counting the number of steps that the steeper motor takes to know the azimuthal angle (spherical coordinates). Consequently, we cannot process the gathered data with accuracy, without fixing this issue.
-
-### Software Improvements
-
-The main software improvement is enabling the communicating between the object detection module and the Arduino. As mentioned already this can be achieved using Serial communication, but it would stop us from using the Viewer to plot results in real time. Thus, further research is recommended to find a suitable alternative.
-
-Once the communication is enabled, the Arduino code can be modified to only scan the area found by the neural network.
 
