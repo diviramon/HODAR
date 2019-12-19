@@ -64,8 +64,6 @@ Below you can find a comparison of the final CAD design and the 3D printed assem
 ![Lidar-Turret](media/lidar-turret.png)
 
 
-More info: https://christie.atlassian.net/wiki/spaces/~641488303/pages/149913613/HODAR
-
 ## LIDAR Viewer
 
 A simple tool visualization tool is included in the project. The viewer uses JAVA and the sketching software tool Processing to display the points in 3D. It also allows to save and or load points from xyz file. 
