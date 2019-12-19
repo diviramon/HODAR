@@ -20,7 +20,11 @@ As of right now, the Arduino code and the Viewer can be executed together to car
 
 ## Fast Object Detection
 
-Deep learning has been proved to be a very fast and reliable manner to carry out object detection. There are different neural networks dedicated to this task such as: CNN, R-CNN, YOLO... For this project I decided to choose You Only Look Once (**YOLO**) since it was proven to be the fast one and accuracy was not as important as speed. HODAR purpose is to detect and bound any new object that enters the scene, clasifying it is out of the scope for now. For this reason, YOLO was the best choice. The neural network is ran in the GPU using CUDA, and it is connected to a Wbecam using OPENCV. Consequently, the live feed of the camera is analyzed in real time, and any new object that enters the scene is identified. Next, the coordinates of its centroid and the size of the bounding box is sent to the Arduino to start the 3D volumetric bounding using the Lidar and motors.
+Deep learning has been proved to be a very fast and reliable manner to carry out object detection. There are different neural networks dedicated to this task such as: CNN, R-CNN, YOLO... For this project I decided to choose You Only Look Once (**YOLO**) since it was proven to be the fast one and accuracy was not as important as speed. HODAR purpose is to detect and bound any new object that enters the scene, clasifying it is out of the scope for now. For this reason, YOLO was the best choice. The neural network is ran in the GPU using CUDA, and it is connected to a Wbecam using OPENCV. Consequently, the live feed of the camera is analyzed in real time, and any new object that enters the scene is identified. Next, the coordinates of its centroid and the size of the bounding box is sent to the Arduino to start the 3D volumetric bounding using the Lidar and motors. Below there is a quick preview of how the object detection process works:
+
+Scene | New Object Detected
+:------------------: | :------------------------------:
+![Scene](media/scene.png) | ![Detection](media/detection.png)
 
 More information about this module can be found under its own [Readme file](src/README.md). Additionally, you can find more information about the math behind the neural network in its [academic paper](https://pjreddie.com/media/files/papers/YOLOv3.pdf) and in the [darknet framework readme](darknet/README.md).
 
