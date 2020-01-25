@@ -52,9 +52,7 @@ All the components of the Lidar turret were designed using SolidWorks and then 3
 
 ### CAD design
 
-Below you can find a comparison of the final CAD design and the 3D printed assembled result. The Solidworks parts can be found in my share drive:
-
-`N:\ENGINEERING\dramonprados\HODAR Turret_SolidWorks`
+Below you can find a comparison of the final CAD design and the 3D printed assembled result.
 
 #### Final Design
 
